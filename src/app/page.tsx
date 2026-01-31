@@ -26,7 +26,7 @@ export default function Home() {
       localStorage.setItem("user", JSON.stringify(user));
       router.push("/dashboard");
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "오류가 발생했습니다";
+      const message = err instanceof Error ? err.message : JSON.stringify(err);
       setError(message);
     } finally {
       setLoading(false);
