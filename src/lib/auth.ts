@@ -15,7 +15,7 @@ export async function signUp(nickname: string, password: string) {
     .select()
     .single();
 
-  if (error) throw error;
+  if (error) throw new Error(`가입 실패: ${error.message}`);
   return data;
 }
 
