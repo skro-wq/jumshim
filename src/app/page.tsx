@@ -26,7 +26,8 @@ export default function Home() {
       localStorage.setItem("user", JSON.stringify(user));
       router.push("/dashboard");
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : JSON.stringify(err);
+      const message = err instanceof Error ? err.message : String(err);
+      alert("DEBUG: " + message);
       setError(message);
     } finally {
       setLoading(false);
